@@ -1,0 +1,17 @@
+.btn {
+    background-color: #5f357c;
+    border: none;
+    color: #faf9fb;
+    font-weight: bold;
+    padding: 1em 2.5em;
+    border-radius: 10px;
+    transition: 0.5s;
+
+}
+
+.btn_custom {
+    background-color: #fff;
+    border: 1px solid black;
+    color: #222;
+    transition: 0.5s;
+}
