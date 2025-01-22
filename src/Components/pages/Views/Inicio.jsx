@@ -1,13 +1,12 @@
 import "./inicio.css"
-
-import { Logo } from "../Layout/icon"
 import { LinkButton } from "../Layout/LinkButton"
+import Logo from '../../../assets/logo.svg';
 
 export const Inicio = () => {
   return (
     <div className="inicio_container">
         <div className="cabecalho">
-            <h1>Eventifye</h1> <Logo/>
+            <h1>Eventifye</h1> <img src={Logo}/>
         </div>
         <div className='body'>
             <div className="infos">
