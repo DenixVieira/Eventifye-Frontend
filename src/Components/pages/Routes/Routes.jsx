@@ -7,6 +7,8 @@ import { PrivateRoute } from "./PrivateRoute"
 import { GerenciarEventos } from "../Views/GerenciarEventos"
 import { Eventos } from "../Views/Eventos"
 import { HomeUser } from "../Views/HomeUser"
+import { MeusEventos } from "../Views/MeusEventos"
+import { Certificados } from "../Views/Certificados"
 
 export const Routes = () => {
     const routes = [
@@ -27,8 +29,16 @@ export const Routes = () => {
             element: <PrivateRoute element={<Eventos/>}/>
         },
         {
+            path:"/MeusEventos",
+            element: <PrivateRoute element={<MeusEventos/>}/>
+        },
+        {
             path:"/HomeUser",
             element: <PrivateRoute element={<HomeUser/>}/>
+        },
+        {
+            path:"/Certificados",
+            element: <PrivateRoute element={<Certificados/>}/>
         },
         {
             path:"/login",

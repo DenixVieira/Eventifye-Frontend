@@ -27,7 +27,7 @@ export const Navbar = () => {
                                     <li className="item">
                                         <Link to='/GerenciarEventos'><h3>Gerenciar Eventos</h3></Link>
                                     </li>
-                                    <Link><button><h3>Sair</h3></button></Link>
+                                    <LinkButton text="Sair" />
                                 </ul>
                             </>
                         ) :
@@ -43,10 +43,10 @@ export const Navbar = () => {
                                         <Link to='/Eventos'><h3>Eventos</h3></Link>
                                     </li>
                                     <li className="item">
-                                        <Link><h3>Certificados</h3></Link>
+                                        <Link to='/Certificados'><h3>Certificados</h3></Link>
                                     </li>
                                     <li className="item">
-                                        <Link><h3>Meus Eventos</h3></Link>
+                                        <Link to='/MeusEventos'><h3>Meus Eventos</h3></Link>
                                     </li>
                                     <LinkButton text="Sair" />
                                 </ul>

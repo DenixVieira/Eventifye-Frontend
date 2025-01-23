@@ -1,7 +1,7 @@
 .home_container{
     width: 100%;
     align-items: center;
-    padding: 4em;
+    padding: 2em;
 }
 
 .home_container h1 {
@@ -24,8 +24,4 @@
 .options div {
     display: flex;
     align-items: center;
-}
-
-.options div img {
-    margin-right: 0.5em;
 }

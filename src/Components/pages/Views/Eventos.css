@@ -36,8 +36,10 @@
     padding: 4px;
     position: absolute;
     top:50%;
-    right: 2px;
+    right: 1px;
     transform: translateY(-50%);
+    border: none;
+    border-radius: 2em;
 }
 .search button:hover
 {

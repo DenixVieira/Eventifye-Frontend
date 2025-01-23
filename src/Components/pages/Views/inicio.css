@@ -22,6 +22,10 @@
     height: 15%;
 }
 
+.cabecalho img{
+    margin-left: 0.5em;
+}
+
 .images,
 .infos {
     height: 80%;

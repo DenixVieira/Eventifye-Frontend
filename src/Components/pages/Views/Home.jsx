@@ -1,5 +1,6 @@
-import { LinkButton } from '../Layout/LinkButton'
 import './home.css'
+
+import { LinkButton } from '../Layout/LinkButton'
 import eventIcon from './../../../assets/event.svg'
 import participantIcon from './../../../assets/participant.svg'
 import speakerIcon from './../../../assets/speaker.svg'

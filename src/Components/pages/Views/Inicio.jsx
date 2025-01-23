@@ -1,6 +1,6 @@
 import "./inicio.css"
-import { LinkButton } from "../Layout/LinkButton"
 import Logo from '../../../assets/logo.svg';
+import { LinkButton } from "../Layout/LinkButton"
 
 export const Inicio = () => {
   return (
