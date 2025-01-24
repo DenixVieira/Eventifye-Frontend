@@ -1,6 +1,6 @@
 import { LinkButton } from '../Layout/LinkButton'
 import { CadastrosEventos } from '../Serviços/CadastrosEventos'
-import './certificados.css'
+import './Eventos.css'
 
 export const MeusEventos = () => {
   return (
@@ -8,7 +8,7 @@ export const MeusEventos = () => {
       <div>
         <h1>Meus Eventos</h1>
       </div>
-        <CadastrosEventos/>
+        <CadastrosEventos id='hehehe' nome='guri' description='kkk' />
     </div>
   )
 }

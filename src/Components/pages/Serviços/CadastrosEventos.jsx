@@ -1,12 +1,8 @@
 import './cadastroseventos.css'
 
-export const CadastrosEventos = () => {
-  const evento = {
-    nome: 'Pedrin',
-    descriptio: 'sdkjsjdsd'
-  }
+export const CadastrosEventos = ({id, nome, descricao}) => {
 
   return (
-    <div className='container_cadastros'><div><h1>{evento.nome}</h1> <p>heheheh</p></div> <div><button>Emitir Certificado</button></div> </div>
+    <div className='container_cadastros' id={id}><div><h1>{nome}</h1> <p>{descricao}</p></div> <div><button>Emitir Certificado</button></div> </div>
   )
 }

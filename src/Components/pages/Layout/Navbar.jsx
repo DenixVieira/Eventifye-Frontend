@@ -10,7 +10,7 @@ export const Navbar = () => {
         <nav className="navbar">
             <Container>
                 {
-                    user != "participante" ?
+                    user == "participante" ?
                         (
                             <>
                                 <h1 className="profile"> OLÁ meu nego <img src={Logo} alt="Logo" /></h1>
@@ -22,7 +22,7 @@ export const Navbar = () => {
                                         <Link><h3>Palestrantes</h3></Link>
                                     </li>
                                     <li className="item">
-                                        <Link><h3>Participantes</h3></Link>
+                                        <Link to='/participantes'><h3>Participantes</h3></Link>
                                     </li>
                                     <li className="item">
                                         <Link to='/GerenciarEventos'><h3>Gerenciar Eventos</h3></Link>

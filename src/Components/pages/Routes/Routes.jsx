@@ -9,6 +9,7 @@ import { Eventos } from "../Views/Eventos"
 import { HomeUser } from "../Views/HomeUser"
 import { MeusEventos } from "../Views/MeusEventos"
 import { Certificados } from "../Views/Certificados"
+import { Participantes } from "../Views/Participantes"
 
 export const Routes = () => {
     const routes = [
@@ -19,6 +20,10 @@ export const Routes = () => {
         {
             path:"/Home",
             element: <PrivateRoute element={<Home/>}/>
+        },
+        {
+            path:"/Participantes",
+            element: <PrivateRoute element={<Participantes/>}/>
         },
         {
             path:"/GerenciarEventos",

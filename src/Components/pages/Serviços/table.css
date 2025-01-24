@@ -1,0 +1,38 @@
+.table_container {
+    width: 100%;
+    margin-top: 2em;
+    border-radius: 2em;
+    padding: 3em;
+    box-shadow: 0px 2px 2px 2px #dad9d9;
+}
+
+.title_table th {
+    background-color: #7937A642;
+    font-weight: bold;
+}
+
+.title_table th,
+.title_table tr,
+.title_table td
+{
+    border: 1px solid #606D75;
+}
+
+.title_table button {
+    background-color: #5f357c;
+    border: none;
+    color: #faf9fb;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.title_table td {
+    padding: 0.5em;
+}
+
+.title_table button:hover {
+    text-decoration: underline;
+}
