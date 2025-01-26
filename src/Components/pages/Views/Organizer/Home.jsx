@@ -1,9 +1,9 @@
-import './home.css'
+import '../Styles/home.css'
 
-import { LinkButton } from '../Layout/LinkButton'
-import eventIcon from './../../../assets/event.svg'
-import participantIcon from './../../../assets/participant.svg'
-import speakerIcon from './../../../assets/speaker.svg'
+import { LinkButton } from '../../Layout/LinkButton'
+import eventIcon from '../../../../assets/event.svg'
+import participantIcon from '../../../../assets/participant.svg'
+import speakerIcon from '../../../../assets/speaker.svg'
 
 export const Home = () => {
   return (

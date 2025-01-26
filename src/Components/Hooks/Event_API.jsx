@@ -11,5 +11,15 @@ export const Event_API = {
         }
     }).then((resp) => resp.json()).then((data) => {clients = data})
     return clients
-  }
+  },
+  getParticipantes: async() => {
+    let Participantes
+    await fetch('http://localhost:5000/Participantes',{
+        method: 'GET',
+        headers:{
+            "Content-type": 'Application/json',
+        }
+    }).then((resp) => resp.json()).then((data) => {Participantes = data})
+    return Participantes
+  },
 }

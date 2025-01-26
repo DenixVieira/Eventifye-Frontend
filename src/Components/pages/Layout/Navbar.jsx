@@ -43,9 +43,6 @@ export const Navbar = () => {
                                         <Link to='/Eventos'><h3>Eventos</h3></Link>
                                     </li>
                                     <li className="item">
-                                        <Link to='/Certificados'><h3>Certificados</h3></Link>
-                                    </li>
-                                    <li className="item">
                                         <Link to='/MeusEventos'><h3>Meus Eventos</h3></Link>
                                     </li>
                                     <LinkButton text="Sair" />

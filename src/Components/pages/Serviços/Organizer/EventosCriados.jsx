@@ -1,6 +1,6 @@
-import './eventoscriados.css'
+import '../Styles/eventoscriados.css'
 
-import buttonMore from '../../../assets/buttonMore.svg'
+import buttonMore from '../../../../assets/buttonMore.svg'
 
 
 export const EventosCriados = ({name, id}) => {

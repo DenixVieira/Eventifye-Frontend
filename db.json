@@ -1,63 +1,57 @@
 {
-    "Events":
-    [
+    "Events": [
         {
             "id": 152234,
             "name": "Casa de Praia",
             "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad",
+            "data_fim": 5123,
+            "desc": "skdaldasdsad",
             "Foto": "ksajdaslkdjsalkdsalkxlçzkckzxlçcxz"
         },
         {
             "id": 51523424,
             "name": "Casa de Praia",
             "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+            "data_fim": 5123,
+            "desc": "skdaldasdsad"
         },
         {
-            "id": 132342351,
-            "name": "Casa de Psdasdraia",
-            "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
-        },
-        {
-            "id": 5153242344,
+            "id": 152234,
             "name": "Casa de Praia",
             "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+            "data_fim": 5123,
+            "desc": "skdaldasdsad",
+            "Foto": "ksajdaslkdjsalkdsalkxlçzkckzxlçcxz"
+        }
+    ],
+    "Participantes": [
+        { "id": "124",
+           "name":"Augistinho Carrata",
+           "email":"SDKASLDKSADSAD",
+           "nascimento":"10/07/2002"
+
         },
-        {
-            "id": 135234,
-            "name": "Casa de Psdasdraia",
-            "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+        { "id": "1224",
+           "name":"Augistinho Carrata",
+           "email":"SDKASLDKSADSAD",
+           "nascimento":"10/07/2002"
+
         },
-        {
-            "id": 512354,
-            "name": "Casa de Praia",
-            "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+        { "id": "1324",
+           "name":"Augistinho Carrata",
+           "email":"SDKASLDKSADSAD",
+           "nascimento":"10/07/2002"
+
         },
-        {
-            "id": 1351,
-            "name": "Casa de Psdasdraia",
-            "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+        { "id": "1224",
+           "name":"Augistinho Carrata",
+           "email":"SDKASLDKSADSAD",
+           "nascimento":"10/07/2002"
         },
-        {
-            "id": 1351,
-            "name": "Ricardo",
-            "data": 12312,
-            "data_fim":5123,
-            "desc":"skdaldasdsad"
+        { "id": "12524",
+           "name":"Emilly",
+           "email":"SDKASLDKSADSAD",
+           "nascimento":"10/07/2002"
         }
     ]
-
 }

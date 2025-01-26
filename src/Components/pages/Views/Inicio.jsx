@@ -1,4 +1,4 @@
-import "./inicio.css"
+import "./Styles/inicio.css"
 import Logo from '../../../assets/logo.svg';
 import { LinkButton } from "../Layout/LinkButton"
 
