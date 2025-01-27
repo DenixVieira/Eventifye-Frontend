@@ -3,14 +3,18 @@ import { useState } from 'react'
 import buttonMore from '../../../../assets/buttonMore.svg'
 
 
-export const CadastarEvento = ({ name, id }) => {
+export const CadastarEvento = ({ name, id,inicio,fim,hora,desc }) => {
   const [showForm, setShowForm] = useState(true)
   const toggleCadaster = () => {
     setShowForm(!showForm)
   }
 
   return (
-    <div className='container_evento' id={id}><h1>{name}</h1>
+    <div className='container_evento' id={id}>
+      <div className='event_description'>
+        <h1>{name}</h1>
+        <p>{desc}</p>
+      </div>
       <div>
         {showForm ? (
           <button onClick={toggleCadaster}>
@@ -18,9 +22,9 @@ export const CadastarEvento = ({ name, id }) => {
           </button>) :
           (
             <div className='infos_evento'>
-              <p>Data Inicio: </p>
-              <p>Data Final: </p>
-              <p>Horário Eventos: </p>
+              <p>Data Inicio: {inicio} </p>
+              <p>Data Final: {fim}</p>
+              <p>Horário Eventos: {hora}</p>
               <div className='buttons'>
                 <button onClick={toggleCadaster}>Voltar</button>
                 <button>Se inscrever</button>

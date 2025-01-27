@@ -1,0 +1,23 @@
+.container_adicionar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    
+}
+
+.area_form,
+.area_image{
+    height: 90%;
+
+}
+
+.area_form {
+    background-color: #fff;
+    width: 65%;
+}
+
+.area_image {
+    background-color: #fff;
+    width: 30%;
+}

@@ -24,7 +24,7 @@ export const Eventos = () => {
       <div className="event_list">
                 {myEvents.map((event) => (
                   <>
-                    <CadastarEvento key={event.id} id={event.id} name={event.name} />
+                    <CadastarEvento key={event.id} inicio={event.data} desc={event.desc} id={event.id} name={event.name} fim={event.data_fim} hora={event.hora} />
                   </>
                 ))
                 }

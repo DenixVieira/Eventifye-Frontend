@@ -19,10 +19,7 @@ export const Navbar = () => {
                                         <Link to='/home'><h3>Home</h3></Link>
                                     </li>
                                     <li className="item">
-                                        <Link><h3>Palestrantes</h3></Link>
-                                    </li>
-                                    <li className="item">
-                                        <Link to='/participantes'><h3>Participantes</h3></Link>
+                                        <Link to='/CriarEvento'><h3>Criar Evento</h3></Link>
                                     </li>
                                     <li className="item">
                                         <Link to='/GerenciarEventos'><h3>Gerenciar Eventos</h3></Link>
