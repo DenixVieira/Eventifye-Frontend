@@ -1,12 +1,11 @@
 import { useRoutes } from "react-router-dom"
 
-import { Home } from "../Views/Organizer/Home"
+import { Home } from "../Views/Home"
 import { Login } from "../Views/Login"
 import { Inicio } from "../Views/Inicio"
 import { PrivateRoute } from "./PrivateRoute"
 import { GerenciarEventos } from "../Views/Organizer/GerenciarEventos"
 import { Eventos } from "../Views/User/Eventos"
-import { HomeUser } from "../Views/User/HomeUser"
 import { MeusEventos } from "../Views/User/MeusEventos"
 import { Participantes } from "../Views/Organizer/Participantes"
 import { CriarEvento } from "../Views/Organizer/CriarEvento"
@@ -41,10 +40,6 @@ export const Routes = () => {
         {
             path:"/MeusEventos",
             element: <PrivateRoute element={<MeusEventos/>}/>
-        },
-        {
-            path:"/HomeUser",
-            element: <PrivateRoute element={<HomeUser/>}/>
         },
         {
             path:"/CriarEvento",

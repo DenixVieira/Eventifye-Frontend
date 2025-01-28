@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,21 +7,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import '../Styles/table.css'
 
-function createData(id, name, email, nacimento, button) {
-  return { id, name, email, nacimento, button };
-}
-
-const rows = [
-  createData(1, 'Frozen yoghurt', 159, 6.0, 24),
-  createData(1, 'Ice cream sandwich', 237, 9.0, 37),
-  createData(1, 'Eclair', 262, 16.0, 24),
-  createData(1, 'Cupcake', 305, 3.7, 67),
-  createData(1, 'Gingerbread', 356, 16.0, 49),
-  createData(1, 'Ice cream sandwich', 237, 9.0, 37),
-  createData(1, 'Eclair', 262, 16.0, 24),
-  createData(1, 'Cupcake', 305, 3.7, 67),
-  createData(1, 'Gingerbread', 356, 16.0, 49)
-];
 
 export default function TableParticipante({ Participantes }) {
   return (
@@ -51,7 +35,7 @@ export default function TableParticipante({ Participantes }) {
                 <TableCell align="left">{row.name}</TableCell>
                 <TableCell align="center">{row.email}</TableCell>
                 <TableCell align="center">{row.nascimento}</TableCell>
-                <TableCell align="center"><button>Confirmar presença</button></TableCell>
+                <TableCell align="center"><button onClick={() => console.log(row.id)}>Confirmar presença</button></TableCell>
                 <TableCell align="center"><button>Remover</button></TableCell>
               </TableRow>
             ))}

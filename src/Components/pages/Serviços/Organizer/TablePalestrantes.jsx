@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,38 +7,22 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import '../Styles/table.css'
 
-function createData(id, name, email, nacimento, button) {
-  return { id, name, email, nacimento, button };
-}
-
-const rows = [
-  createData(1, 'Frozen yoghurt', 159, 6.0, 24),
-  createData(1, 'Ice cream sandwich', 237, 9.0, 37),
-  createData(1, 'Eclair', 262, 16.0, 24),
-  createData(1, 'Cupcake', 305, 3.7, 67),
-  createData(1, 'Gingerbread', 356, 16.0, 49),
-  createData(1, 'Ice cream sandwich', 237, 9.0, 37),
-  createData(1, 'Eclair', 262, 16.0, 24),
-  createData(1, 'Cupcake', 305, 3.7, 67),
-  createData(1, 'Gingerbread', 356, 16.0, 49)
-];
-
-export default function TableParticipante({ Participantes }) {
+export default function TableParticipante({ Palestrantes }) {
   return (
     <div className='table_container'>
-
+      <p>Palestras</p>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" className='title_table'>
           <TableHead>
             <TableRow >
-              <TableCell align='center'>ID</TableCell>
+              <TableCell align="center">HORÁRIO</TableCell>
               <TableCell align="left">NOME</TableCell>
-              <TableCell align="center">EMAIL</TableCell>
+              <TableCell align='center'>PALESTRANTE</TableCell>
               <TableCell align="center">AREA</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {Participantes.map((row) => (
+            {Palestrantes.map((row) => (
               <TableRow
                 key={row.id}
               >

@@ -34,7 +34,7 @@ export const Navbar = () => {
 
                                 <ul className="list">
                                     <li className="item">
-                                        <Link to='/HomeUser'><h3>Home</h3></Link>
+                                        <Link to='/Home'><h3>Home</h3></Link>
                                     </li>
                                     <li className="item">
                                         <Link to='/Eventos'><h3>Eventos</h3></Link>
