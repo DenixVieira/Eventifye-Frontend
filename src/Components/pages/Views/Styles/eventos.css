@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-.title{
+.title{ 
     display: flex;
     width: 100%;
     justify-content: space-between;

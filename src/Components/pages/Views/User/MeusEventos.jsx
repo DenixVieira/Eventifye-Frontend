@@ -1,6 +1,6 @@
 
 import { EventosCadastrados } from '../../Serviços/User/EventosCadastrados'
-import '../Styles/Eventos.css'
+import '../Styles/eventos.css'
 
 export const MeusEventos = () => {
   return (

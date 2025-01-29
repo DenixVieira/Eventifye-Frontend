@@ -1,20 +1,15 @@
-import { Navigate, useLocation } from "react-router-dom"
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/AuthContext"
-import { Container } from "../Layout/Container"
-import { Navbar } from "../Layout/Navbar"
+import { Container } from "../Layout/Container";
+import { Navbar } from "../Layout/Navbar";
+import { useAuth } from "react-oidc-context";
 
 export const PrivateRoute = ({ element }) => {
-    let isAuth = true
-    return isAuth ? (
-        <>
-            <Navbar />
-            <Container customClass='min_height'>
-                {element}
-            </Container>
-        </>
-
-    ) : (
-        <Navigate to={"/login"} replace />
-    )
-}
+	const { isAuthenticated, signinRedirect,user } = useAuth();
+	return isAuthenticated ? (
+		<>
+			<Navbar />
+			<Container customClass='min_height'>{element}</Container>
+		</>
+	) : (
+		signinRedirect()
+	);
+};
