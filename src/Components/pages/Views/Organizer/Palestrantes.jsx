@@ -8,7 +8,7 @@ import TablePalestrantes from "../../Serviços/Organizer/TablePalestrantes"
 
 export const Palestrantes = () => {
     const { id } = useParams();
-    const [participantes, setParticipantes] = useState([])
+    const [palestrantes, setPalestrantes] = useState([])
     const {
         register,
         handleSubmit,
@@ -24,7 +24,7 @@ export const Palestrantes = () => {
             const events = await Event_API.getEvents();
             console.log(events)
             const eventInfo = events.find(client => client.id == id);
-            setParticipantes(eventInfo.Participantes);
+            setPalestrantes(eventInfo.Participantes);
         };
         fetchClient();
     }, [id]);
@@ -36,7 +36,7 @@ export const Palestrantes = () => {
             </div>
             <div className="container_adicionar">
                 <div className="area_form">
-                    {participantes.length > 0 ? <TablePalestrantes Palestrantes={participantes} /> : <p>sem dados</p>
+                    {palestrantes.length > 0 ? <TablePalestrantes Palestrantes={palestrantes} /> : <p>sem dados</p>
                     }
                 </div>
                 <div className="area_image">
@@ -59,7 +59,7 @@ export const Palestrantes = () => {
 
                     </div>
                     <div className="div_container">
-                        <h2>Remover Palestrante</h2>
+                        <h2>Remover Palestra</h2>
                     </div>
                 </div>
             </div>

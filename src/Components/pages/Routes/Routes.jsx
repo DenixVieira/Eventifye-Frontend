@@ -18,31 +18,31 @@ export const Routes = () => {
             element: <Inicio/>
         },
         {
-            path:"/Home",
+            path:"/home",
             element: <PrivateRoute element={<Home/>}/>
         },
         {
-            path:"/Eventos/:id/Participantes",
+            path:"/eventos/:id/participantes",
             element: <PrivateRoute element={<Participantes/>}/>
         },
         {
-            path:"/Eventos/:id/Palestrantes",
+            path:"/eventos/:id/palestrantes",
             element: <PrivateRoute element={<Palestrantes/>}/>
         },
         {
-            path:"/GerenciarEventos",
+            path:"/gerenciar-eventos",
             element: <PrivateRoute element={<GerenciarEventos/>}/>
         },
         {
-            path:"/Eventos",
+            path:"/eventos",
             element: <PrivateRoute element={<Eventos/>}/>
         },
         {
-            path:"/MeusEventos",
+            path:"/meus-eventos",
             element: <PrivateRoute element={<MeusEventos/>}/>
         },
         {
-            path:"/CriarEvento",
+            path:"/criar-evento",
             element: <PrivateRoute element={<CriarEvento/>}/>
         },
         {

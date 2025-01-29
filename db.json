@@ -3,9 +3,9 @@
         {
             "id": 152234,
             "name": "Casa de Praia1",
-            "data": 12312,
-            "data_fim": 5123,
-            "desc": "skdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsadskdaldasdsad",
+            "data": "10/07/2022",
+            "data_fim": "10/07/2022",
+            "desc": "Descrição do Evento ficará aqui",
             "Foto": "ksajdaslkdjsalkdsalkxlçzkckzxlçcxz",
             "Participantes": [
                 { "id": "124",
@@ -41,9 +41,10 @@
         {
             "id": 51523424,
             "name": "Casa de Praia2",
-            "data": 12312,
-            "data_fim": 5123,
-            "desc": "skdaldasdsad",
+            "data": "10/07/2022",
+            "data_fim": "10/07/2022",
+            "desc": "Descrição do Evento ficará aqui",
+            "Foto": "ksajdaslkdjsalkdsalkxlçzkckzxlçcxz",
             "Participantes": [
                 { "id": "124",
                    "name":"Augistinho Carrata",
@@ -54,11 +55,11 @@
             ]
         },
         {
-            "id": 152234,
+            "id": 1523234,
             "name": "Casa de Praia3",
-            "data": 12312,
-            "data_fim": 5123,
-            "desc": "skdaldasdsad",
+            "data": "10/07/2022",
+            "data_fim": "10/07/2022",
+            "desc": "Descrição do Evento ficará aqui",
             "Foto": "ksajdaslkdjsalkdsalkxlçzkckzxlçcxz",
             "Participantes": [
                 { "id": "124",

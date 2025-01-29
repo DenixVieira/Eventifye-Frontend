@@ -18,7 +18,7 @@ export const Inicio = () => {
                 <div className="content">
                     <h2><span>Planeje</span> suas palestras, <span>Monitore</span> sua programação e <span>aproveite</span> ao máximo sua participação.</h2>
                     <p>Faça login para acompanhar suas palestras, atualizar informações e conferir sua agenda.</p>
-                    <LinkButton text="Login Organizador" customClass="btn_custom"/>
+                    <LinkButton to='/criar-evento' text="Crie um evento" customClass="btn_custom"/>
                 </div>
             </div>
             <div className="images">

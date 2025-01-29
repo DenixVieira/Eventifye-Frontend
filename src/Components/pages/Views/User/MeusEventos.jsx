@@ -8,7 +8,7 @@ export const MeusEventos = () => {
       <div>
         <h1>Meus Eventos</h1>
       </div>
-        <EventosCadastrados id='hehehe' nome='guri' description='kkk' />
+        <EventosCadastrados id='hehehe' nome='[nome evento cadastrado]' description='kkk' />
     </div>
   )
 }

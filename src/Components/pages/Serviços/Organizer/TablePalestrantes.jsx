@@ -10,7 +10,7 @@ import '../Styles/table.css'
 export default function TableParticipante({ Palestrantes }) {
   return (
     <div className='table_container'>
-      <p>Palestras</p>
+      <h2>Palestras</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" className='title_table'>
           <TableHead>

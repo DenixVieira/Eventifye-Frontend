@@ -24,8 +24,9 @@ export const EventosCriados = ({ name, id, inicio, fim, hora, desc }) => {
               <p>Horário Eventos: {hora}</p>
               <div className='buttons'>
                 <button onClick={toggleCadaster}>Voltar</button>
-                <LinkButton to={`/Eventos/${id}/Palestrantes`} text='Palestrantes'></LinkButton>
+                <LinkButton to={`/Eventos/${id}/Palestrantes`} text='Palestras'></LinkButton>
                 <LinkButton to={`/Eventos/${id}/Participantes`} text='Participantes'></LinkButton>
+                <button onClick={toggleCadaster}>Remover</button>
               </div>
             </div>
           )

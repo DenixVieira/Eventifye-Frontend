@@ -11,7 +11,7 @@ import '../Styles/table.css'
 export default function TableParticipante({ Participantes }) {
   return (
     <div className='table_container'>
-
+      <h2>Participantes</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" className='title_table'>
           <TableHead>
