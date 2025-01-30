@@ -10,6 +10,7 @@ export const PrivateRoute = ({ element }) => {
 			<Container customClass='min_height'>{element}</Container>
 		</>
 	) : (
-		signinRedirect()
+		<p>HEHE</p>
+		// signinRedirect()
 	);
 };

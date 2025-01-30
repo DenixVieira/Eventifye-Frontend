@@ -14,14 +14,13 @@ export const CriarEvento = () => {
 	} = useForm();
 
 	const [file, setFile] = useState(null);
-	let binaryData = [];
 
 	const onSubmit = (data) => {
 		mutate(
 			{ values: data },
 			{
 				onSuccess: ({ data }) => {
-					navigate(`/eventos/${data.id}/palestrantes`);
+					navigate(`/eventos/${data.id}/palestras`);
 				},
 				onError: (erro) => {
 					console.log(erro);
@@ -87,11 +86,10 @@ export const CriarEvento = () => {
 			</div>
 			<div className='area_image'>
 				<div className='file_form'>
-					<p>{file}</p>
 
 					<img
-						src={window.URL.createObjectURL(new Blob(binaryData))}
-						alt='Icone enviado pelo usuario'
+						src={file}
+						
 					/>
 
 					<input
@@ -101,7 +99,7 @@ export const CriarEvento = () => {
 							binaryData.push(e.target.files[0]);
 							setFile(e.target.files[0]);
 						}}
-						{...register("image", { required: false })}
+						{...register("iconeEvento", { required: false })}
 					/>
 				</div>
 

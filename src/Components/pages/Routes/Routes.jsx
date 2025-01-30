@@ -8,7 +8,7 @@ import { Eventos } from "../Views/User/Eventos";
 import { MeusEventos } from "../Views/User/MeusEventos";
 import { Participantes } from "../Views/Organizer/Participantes";
 import { CriarEvento } from "../Views/Organizer/CriarEvento";
-import { Palestrantes } from "../Views/Organizer/Palestrantes";
+import { Palestras } from "../Views/Organizer/Palestras";
 
 export const Routes = () => {
 	const routes = [
@@ -25,8 +25,8 @@ export const Routes = () => {
 			element: <PrivateRoute element={<Participantes />} />,
 		},
 		{
-			path: "/eventos/:id/palestrantes",
-			element: <PrivateRoute element={<Palestrantes />} />,
+			path: "/eventos/:id/palestras",
+			element: <PrivateRoute element={<Palestras />} />,
 		},
 		{
 			path: "/gerenciar-eventos",

@@ -3,7 +3,7 @@ import { useState } from "react";
 import buttonMore from "../../../../assets/buttonMore.svg";
 import { format, toDate } from "date-fns";
 
-export const CadastarEvento = ({ name, id, inicio, fim, hora, desc }) => {
+export const CadastarEvento = ({ name, id, inicio, fim, desc, icon }) => {
 	const [showForm, setShowForm] = useState(false);
 	const toggleCadaster = () => {
 		setShowForm(!showForm);
@@ -28,7 +28,7 @@ export const CadastarEvento = ({ name, id, inicio, fim, hora, desc }) => {
 							Data Inicio: {inicio.toString().slice(0,10).split("-").reverse().join("/")}
 						</p>
 						<p>Data Final: {fim.toString().slice(0,10).split("-").reverse().join("/")}</p>
-						<p>Horário Eventos: {hora}</p>
+						<p>Horário Eventos: {inicio.toString().slice(11,16)} à {fim.toString().slice(11,16)}</p>
 						<div className='buttons'>
 							<button onClick={toggleCadaster}>Voltar</button>
 							<button>Se inscrever</button>
