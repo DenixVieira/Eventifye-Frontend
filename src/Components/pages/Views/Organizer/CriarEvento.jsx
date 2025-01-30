@@ -86,17 +86,12 @@ export const CriarEvento = () => {
 			</div>
 			<div className='area_image'>
 				<div className='file_form'>
-
-					<img
-						src={file}
-						
-					/>
+					<img src={file} />
 
 					<input
 						type='file'
 						accept='image/*'
 						onChange={(e) => {
-							binaryData.push(e.target.files[0]);
 							setFile(e.target.files[0]);
 						}}
 						{...register("iconeEvento", { required: false })}

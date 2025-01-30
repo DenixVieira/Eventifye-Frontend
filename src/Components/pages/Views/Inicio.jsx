@@ -1,20 +1,25 @@
 import "./Styles/inicio.css";
 import Logo from "../../../assets/logo.svg";
 import { LinkButton } from "../Layout/LinkButton";
-import { useAuth } from "react-oidc-context";
 import { useNavigate } from "react-router-dom";
+import { useKeycloak } from "@react-keycloak/web";
+import { useEffect } from "react";
 
 export const Inicio = () => {
-	const { signinRedirect, isAuthenticated } = useAuth();
+	const { keycloak } = useKeycloak();
 	const navigate = useNavigate();
-	if (isAuthenticated) {
-		navigate("/home");
-	}
+
+	useEffect(() => {
+		if (keycloak.authenticated) {
+			navigate("/home");
+		}
+	}, [keycloak.authenticated, navigate]);
+
 	return (
 		<div className='inicio_container'>
 			<div className='cabecalho'>
 				<h1>Eventifye</h1>
-				<img src={Logo} />
+				<img src={Logo} alt=""/>
 			</div>
 			<div className='body'>
 				<div className='infos'>
@@ -30,7 +35,11 @@ export const Inicio = () => {
 						</p>
 						<LinkButton
 							text='Login Participante'
-							onClick={signinRedirect}
+							onClick={() =>
+								keycloak.login({
+									redirectUri: "http://localhost:5173/home",
+								})
+							}
 						/>
 					</div>
 					<div className='content'>
@@ -50,7 +59,9 @@ export const Inicio = () => {
 						/>
 					</div>
 				</div>
-				<div className='images'>kkkkk</div>
+				<div className='images'>
+					<img src='Slides Box.svg' alt='Inicio' style={{width: "100%"}} />
+				</div>
 			</div>
 		</div>
 	);

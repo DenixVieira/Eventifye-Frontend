@@ -3,16 +3,18 @@ import { Container } from "./Container";
 import { Link } from "react-router-dom";
 import { LinkButton } from "./LinkButton";
 import Logo from "./../../../assets/logo.svg";
-import { useAuth } from "react-oidc-context";
+import { useKeycloak } from "@react-keycloak/web";
 
 export const Navbar = () => {
-	const { user, signoutSilent } = useAuth();
+	const { keycloak } = useKeycloak();
+	console.log(keycloak);
+	
 	return (
 		<nav className='navbar'>
 			<Container>
 				<h1 className='profile'>
 					{" "}
-					Olá {user.profile.given_name}!
+					Olá {keycloak.idTokenParsed.given_name}!
 					<img src={Logo} alt='Logo' />
 				</h1>
 				<ul className='list'>
@@ -27,8 +29,8 @@ export const Navbar = () => {
 						</Link>
 					</li>
 					<li className='item'>
-						<Link to='/meus-eventos'>
-							<h3>Eventos Inscritos</h3>
+						<Link to='/minhas-inscricoes'>
+							<h3>Minhas Inscrições</h3>
 						</Link>
 					</li>
 					<li className='item'>
@@ -41,7 +43,10 @@ export const Navbar = () => {
 							<h3>Gerenciar Eventos</h3>
 						</Link>
 					</li>
-					<LinkButton text='Sair' onClick={signoutSilent} />
+					<LinkButton
+						text='Sair'
+						onClick={() => keycloak.logout({ redirectUri: "http://localhost:5173" })}
+					/>
 				</ul>
 			</Container>
 		</nav>

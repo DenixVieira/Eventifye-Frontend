@@ -2,35 +2,29 @@ import { api } from "../../../../lib/api";
 import { useMutation, useQueryClient } from "react-query";
 
 type PalestrasRequest = {
-    idEvento: number;
+	idEvento: number;
 	nome: string;
-	horario: Date;
+	horario: any;
 	nomePalestrante: string;
 	expertisePalestrante: string;
-
 };
 
-const postFunction = async ({ values }: { values: PalestrasRequest}) => {
-    
-    const data = {
-        ...values
-    };
-    console.log(data)
-    return await api.post("/palestras", data);
+const postFunction = async ({ values }: { values: PalestrasRequest }) => {
+	const data = {
+		...values,
+		horario: values.horario.concat(":00"),
+	};
+	console.log(data);
+
+	return await api.post("/palestras", data);
 };
 
 export function usePalestrasMutate() {
-    const queryClient = useQueryClient();
+	const mutate = useMutation({
+		mutationFn: postFunction,
+		onSuccess: () => {},
+		onError: () => {},
+	});
 
-    const mutate = useMutation({
-        mutationFn: postFunction,
-        onSuccess: () => {
-            queryClient.invalidateQueries({
-                queryKey: ["all-eventos-data"],
-            });
-        },
-        onError: () => {},
-    });
-
-    return mutate;
+	return mutate;
 }

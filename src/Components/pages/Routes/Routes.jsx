@@ -37,7 +37,7 @@ export const Routes = () => {
 			element: <PrivateRoute element={<Eventos />} />,
 		},
 		{
-			path: "/meus-eventos",
+			path: "/minhas-inscricoes",
 			element: <PrivateRoute element={<MeusEventos />} />,
 		},
 		{

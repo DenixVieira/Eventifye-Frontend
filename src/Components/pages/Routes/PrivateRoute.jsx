@@ -1,16 +1,15 @@
+import { useKeycloak } from "@react-keycloak/web";
 import { Container } from "../Layout/Container";
 import { Navbar } from "../Layout/Navbar";
-import { useAuth } from "react-oidc-context";
 
 export const PrivateRoute = ({ element }) => {
-	const { isAuthenticated, signinRedirect,user } = useAuth();
-	return isAuthenticated ? (
+	const { keycloak } = useKeycloak();
+	return keycloak.authenticated ? (
 		<>
 			<Navbar />
 			<Container customClass='min_height'>{element}</Container>
 		</>
 	) : (
-		<p>HEHE</p>
-		// signinRedirect()
+		keycloak.login()
 	);
 };

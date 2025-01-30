@@ -1,11 +1,13 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "./Components/pages/Routes/Routes";
 import { Footer } from "./Components/pages/Layout/Footer";
-import {userManager,onSigninCallback} from "./Components/lib/config.js"
 
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { AuthProvider } from "react-oidc-context";
+import { useKeycloak } from "@react-keycloak/web";
+import { useEffect } from "react";
+import { api } from "./Components/lib/api";
+import { Loader } from "./Components/pages/Layout/Loader";
 
 const client = new QueryClient({
 	defaultOptions: {
@@ -16,18 +18,38 @@ const client = new QueryClient({
 });
 
 function App() {
-	return (
-		<AuthProvider
-			userManager={userManager}
-			onSigninCallback={onSigninCallback}
-		>
+	const { keycloak, initialized } = useKeycloak();
+
+	useEffect(() => {
+		if (
+			!Object.keys(api.defaults.headers).includes("Authorization") &&
+			initialized
+		) {
+			api.defaults.headers.Authorization = `Bearer ${keycloak.idToken}`;
+		}
+	}, [initialized, keycloak.idToken]);
+
+	if (initialized) {
+		return (
 			<QueryClientProvider client={client}>
 				<Router>
 					<Routes />
 					<Footer />
 				</Router>
 			</QueryClientProvider>
-		</AuthProvider>
+		);
+	}
+
+	return (
+		<div
+			style={{
+				width: "100%",
+				display: "flex",
+				justifyContent: "center",
+			}}
+		>
+			<Loader />
+		</div>
 	);
 }
 

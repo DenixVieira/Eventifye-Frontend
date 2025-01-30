@@ -14,8 +14,7 @@ export const Eventos = () => {
 		const normalizedSearchInput = normalizeText(search);
 
 		return !search || normalizedItem.includes(normalizedSearchInput);
-	});
-	// const SearchEvent = () => {};
+	}) ?? [];
 
 	if (isError) {
 		console.log("erro");

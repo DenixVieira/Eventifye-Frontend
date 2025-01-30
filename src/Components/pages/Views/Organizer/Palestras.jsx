@@ -1,82 +1,213 @@
-import { useState, useEffect } from "react"
-import { useParams } from 'react-router-dom'
-import { useForm } from "react-hook-form"
-import TablePalestrantes from "../../Serviços/Organizer/TablePalestrantes"
-import { normalizeText } from "../../../lib/utils";
-import { usePalestrasMutate } from "./hooks/useMutatePalestras"
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import TablePalestrantes from "../../Serviços/Organizer/TablePalestrantes";
+import { usePalestrasMutate } from "./hooks/useMutatePalestras";
+import { useEventoData } from "./hooks/useEventoData";
+import { useQueryClient } from "react-query";
+import { useKeycloak } from "@react-keycloak/web";
+import { Alert, Snackbar } from "@mui/material";
+import { useDeletePalestra } from "./hooks/useDeletePalestra";
+import { Loader } from "../../Layout/Loader";
 
 export const Palestras = () => {
-    const { id } = useParams();
-    const [palestrantes, setPalestrantes] = useState([])
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm()
+	const { keycloak } = useKeycloak();
+	const queryClient = useQueryClient();
+	const { id } = useParams();
+	const { data, isLoading, isError } = useEventoData(id);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 
-    const { mutate } = usePalestrasMutate();
+	const { mutate } = usePalestrasMutate();
+	const { mutate: deletePalestra } = useDeletePalestra(id);
 
-    // const { data, isLoading } = useEventoData();
+	const [snackbar, setSnackbar] = useState({
+		open: false,
+		message: "",
+		severity: "",
+	});
 
-    const onSubmit = (data) => {
-        data = {...data, idEvento: id}
-        mutate(
-            { values: data},
-            {
-                onSuccess: ({ data }) => {
-                    console.log('sucesso')
-                },
-                onError: (erro) => {
-                    console.log(erro);
-                },
-            }
-        );
-    };
+	const handleClose = (event, reason) => {
+		if (reason === "clickaway") {
+			return;
+		}
 
-    return (
-        <div className='home_container'>
-            <div className='title'>
-                <h1>"Nome Evento":</h1>
-            </div>
-            <div className="container_adicionar">
-                <div className="area_form">
-                    {palestrantes.length > 0 ? <TablePalestrantes Palestrantes={palestrantes} /> : <p>sem dados</p>
-                    }
-                </div>
-                <div className="area_image">
-                    <div className="div_container" >
-                        <h2>Cadastrar Palestra:</h2>
+		setSnackbar({ message: "", open: false, severity: "" });
+	};
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
+	const onSubmit = (data) => {
+		data = { ...data, idEvento: id };
+		mutate(
+			{ values: data },
+			{
+				onSuccess: () => {
+					queryClient.invalidateQueries({
+						queryKey: ["evento-data", id],
+					});
+				},
+				onError: (erro) => {
+					console.log(erro);
+				},
+			}
+		);
+	};
 
-                            <label>Horário do Evento:</label>
-                            <input type="time" style={{ padding: '0.5em 3em', width: '50%', marginLeft: '25%', cursor: 'pointer' }} {...register("horario", { required: true })} />
-                            {errors.horario && <span>Campo Obrigatório!</span>}
+	const removePalestra = (palestraId) => {
+		deletePalestra(
+			{ values: { idPalestra: palestraId } },
+			{
+				onSuccess: () => {
+					setSnackbar({
+						message: "Palestra deletada com sucesso!",
+						open: true,
+						severity: "success",
+					});
+					queryClient.invalidateQueries({
+						queryKey: ["evento-data", id],
+					});
+				},
+				onError: () => {
+					setSnackbar({
+						message: "Erro ao apagar palestra!",
+						open: true,
+						severity: "error",
+					});
+				},
+			}
+		);
+	};
 
-                            <input placeholder="Nome da Palestra" {...register("nome", { required: true })} />
-                            {errors.nome && <span>Campo Obrigatório!</span>}
+	return (
+		<div className='home_container'>
+			{isLoading && (
+				<div
+					style={{
+						width: "100%",
+						display: "flex",
+						justifyContent: "center",
+					}}
+				>
+					<Loader />
+				</div>
+			)}
+			{!isLoading && data && (
+				<>
+					<div className='title'>
+						<h1>{data.tituloEvento}</h1>
+					</div>
+					<div
+						className='container_adicionar'
+						style={{
+							alignItems: "start",
+							justifyContent: "space-between",
+							display: "flex",
+							gap: "20px",
+						}}
+					>
+						<div className='area_form' style={{ width: "100%" }}>
+							<TablePalestrantes
+								palestrantes={data.palestras}
+								showRemove={data.idUsuario == keycloak.subject}
+								removePalestra={removePalestra}
+							/>
+						</div>
+						{data.idUsuario == keycloak.subject && (
+							<div className='area_image'>
+								<div className='div_container'>
+									<h2>Cadastrar Palestra:</h2>
 
-                            <input placeholder="Nome do Palestrante" {...register("nomePalestrante", { required: true })} />
-                            {errors.nomePalestrante && <span>Campo Obrigatório!</span>}
+									<form onSubmit={handleSubmit(onSubmit)}>
+										<label>Horário do Evento:</label>
+										<input
+											type='time'
+											style={{
+												padding: "0.5em 3em",
+												width: "50%",
+												marginLeft: "25%",
+												cursor: "pointer",
+											}}
+											{...register("horario", {
+												required: true,
+											})}
+										/>
+										{errors.horario && (
+											<span>Campo Obrigatório!</span>
+										)}
 
-                            <input placeholder="Expertise do Palestrante" {...register("expertisePalestrante", { required: true })} />
-                            {errors.expertisePalestrante && <span>Campo Obrigatório!</span>}
-                            {/* errors will return when field validation fails  */}
-                            {(errors.horario || errors.nome || errors.nomePalestrante) && <span>Preencha todos os campos!</span>}
+										<input
+											placeholder='Nome da Palestra'
+											{...register("nome", {
+												required: true,
+											})}
+										/>
+										{errors.nome && (
+											<span>Campo Obrigatório!</span>
+										)}
 
-                            <input type="submit" className="button_form" value='Cadastrar' />
-                        </form>
+										<input
+											placeholder='Nome do Palestrante'
+											{...register("nomePalestrante", {
+												required: true,
+											})}
+										/>
+										{errors.nomePalestrante && (
+											<span>Campo Obrigatório!</span>
+										)}
 
-                    </div>
-                    <div className="div_container">
-                        <h2>Remover Palestra</h2>
-                    </div>
-                </div>
-            </div>
-            <div className="container_adicionar">
-            </div>
+										<input
+											placeholder='Expertise do Palestrante'
+											{...register(
+												"expertisePalestrante",
+												{
+													required: true,
+												}
+											)}
+										/>
+										{errors.expertisePalestrante && (
+											<span>Campo Obrigatório!</span>
+										)}
+										{/* errors will return when field validation fails  */}
+										{(errors.horario ||
+											errors.nome ||
+											errors.nomePalestrante) && (
+											<span>
+												Preencha todos os campos!
+											</span>
+										)}
 
-        </div>
-    )
-}
+										<input
+											type='submit'
+											className='button_form'
+											value='Cadastrar'
+										/>
+									</form>
+								</div>
+							</div>
+						)}
+					</div>
+					<Snackbar
+						open={snackbar.open}
+						onClose={handleClose}
+						autoHideDuration={3000}
+						anchorOrigin={{
+							vertical: "bottom",
+							horizontal: "right",
+						}}
+					>
+						<Alert
+							onClose={handleClose}
+							severity={snackbar.severity}
+							variant='filled'
+							sx={{ width: "100%" }}
+						>
+							{snackbar.message}
+						</Alert>
+					</Snackbar>
+				</>
+			)}
+		</div>
+	);
+};
